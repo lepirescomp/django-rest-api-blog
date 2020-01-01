@@ -25,7 +25,7 @@ SECRET_KEY = 'bmnr64iqcy_85an3k3m%8qxpaj1@3du6lo2av(s9iccyxy^j@v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     
     #local
     'posts.apps.PostsConfig',
+
+    #3-rd party
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -121,3 +124,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ]
+}
